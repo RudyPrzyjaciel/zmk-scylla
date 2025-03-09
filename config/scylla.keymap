@@ -57,10 +57,10 @@
             >;
         };
         extra1 {
-            status = "reserved
+            status = "reserved";
         };
         extra2 {
-            status = "reserved
+            status = "reserved";
         };
-    };
-};
+    }
+}
