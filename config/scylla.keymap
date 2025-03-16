@@ -14,7 +14,6 @@
         print_macro: print_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
             bindings
                 = <&macro_tap &kp QMARK &kp DQT &kp O &kp T &kp P &kp DQT &kp SPACE &kp O &kp T &kp P>
                 , <&macro_tap &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT>
