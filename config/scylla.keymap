@@ -10,6 +10,25 @@
 #define ADJ 3
 
 / {
+    macros {
+        print_macro: print_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp QMARK &kp SQT &kp O &kp T &kp P &kp SQT &kp SPACE &kp O &kp T &kp P>
+                , <&macro_tap &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp LEFT &kp LEFT &kp LEFT>
+                , <&macro_release &kp LSHFT>
+                , <&macro_press &kp LEFT_CONTROL>
+                , <&macro_tap &kp D>
+                , <&macro_release &kp LEFT_CONTROL>
+                ;
+        };
+    };
+};
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,9 +60,9 @@
             display-name = "Higher";
             bindings = <
                 &kp TILDE   &kp EXCL &kp AT     &kp HASH         &kp DLLR        &kp PRCNT            &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp DEL
-                &none       &none    &none      &none            &none           &kp LBRC             &kp RBRC  &none     &kp UP    &kp INS   &kp SLCK  &kp C_MUTE
-                &none       &none    &kp C_PREV &kp C_PLAY_PAUSE &kp C_NEXT      &kp LPAR             &kp RPAR  &kp LEFT  &kp DOWN  &kp RIGHT &kp HOME  &kp C_VOL_UP
-                &none       &none    &none      &none            &none           &none                &none     &none     &none     &none     &kp END   &kp C_VOL_DN 
+                &none       &none    &none      &none            &none           &kp LBRC             &kp RBRC  &none     &kp UP    &kp INS   &kp HOME  &kp C_MUTE
+                &none       &none    &kp C_PREV &kp C_PLAY_PAUSE &kp C_NEXT      &kp LPAR             &kp RPAR  &kp LEFT  &kp DOWN  &kp RIGHT &kp END  &kp C_VOL_UP
+                &none       &none    &none      &none            &none           &none                &none     &none     &none     &none     &print_macro   &kp C_VOL_DN 
                                                 &trans           &trans          &mo ADJ              &trans    &trans    &trans
                                                                  &trans          &trans               &trans    &trans
             >;
